@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Contact Me</title>
+</head>
+<body>
+<div id="content" class="border">
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12 text-blue-600 dark:text-white">Contact Me</h2>
+      
+      <!-- Contact Card -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+        <!-- Image Section -->
+        <div>
+          <img src="https://res.cloudinary.com/dxla3v5ng/image/upload/v1725790101/a0hzfafp5fiegwr3icdo.jpg" alt="Nikhil Gadiwadd" class="rounded-full w-48 h-48 object-cover border-4 border-blue-600 dark:border-white">
+        </div>
+
+        <!-- Info Section -->
+        <div class="text-left">
+          <h3 class="text-2xl font-bold text-gray-700 dark:text-white mb-4">Nikhil Gadiwadd</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-2"><strong>Email:</strong> <a href="nikhilgadiwadd.work@gmail.com" class="text-gray-600 dark:text-gray-300 hover:underline ">nikhilgadiwadd.work@gmail.com</a></p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-2"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nikhil-gadiwadd-57931b246/" target="_blank" class="text-gray-600 hover:underline dark:text-gray-300">Nikhil Gadiwadd</a></p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-2"><strong>Location:</strong> Pune, India</p>
+
+        </div>
+      </div>
+
+      <!-- Message Form -->
+      <div class="mt-12 max-w-lg mx-auto">
+        <h3 class="text-2xl font-bold text-blue-600 dark:text-white mb-6">Send Me a Message</h3>
+        <form th:action="@{/contactMe}" method="post">
+          <input name="name" id="name" type="text" placeholder="Your Name" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600">
+          <input name="email" id="email" type="email" placeholder="Your Email" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600">
+          <textarea name="message" id="message" placeholder="Your Message" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600"></textarea>
+          <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition duration-300">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Smart Contact Manager. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+<script>
+  console.log("Contact page");
+</script>
+</body>
+</html>

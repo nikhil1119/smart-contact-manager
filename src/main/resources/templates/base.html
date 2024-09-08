@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html
+  class="light"
+  lang="en"
+  th:fragment="parent(content, title, script)"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:replace="${title}">Base Page</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/telephone.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/telephone.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/telephone.png"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link rel="stylesheet" data-th-href="@{'/css/style.css'}" />
+    <!-- fontawesome cdn link-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white bg-gray-100">
+    <!-- if user is logged in : navbar -->
+    <div th:if="${loggedInUser}">
+      <div class="fixed" th:replace="~{User/user_navbar::user-navbar}"></div>
+    </div>
+
+    <!-- if user is not logged in : navbar -->
+    <div th:unless="${loggedInUser}">
+      <div class="sticky top-0 z-50 bg-white shadow-md" th:replace="~{navbar::navbar}"></div>
+    </div>
+
+    <div class="p-4">
+      <section th:replace="${content}"></section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
+    <th:block th:replace="${script}"></th:block>
+  </body>
+</html>
