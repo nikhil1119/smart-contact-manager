@@ -37,3 +37,6 @@ build/
 application.properties
 
 application-dev.properties
+
+#uploads
+/uploads
